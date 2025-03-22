@@ -8,9 +8,9 @@ def get_text(url):
                 for chunk in r.iter_content(chunk_size=4096):
                     if chunk:
                         f.write(chunk)
-        time.sleep(0.1)
-        with open("./Rules/tmp", "r",encoding='utf-8') as f:
-            return f.read().strip()
+            time.sleep(0.1)
+            with open("./Rules/tmp", "r",encoding='utf-8') as f:
+                return f.read().strip()
         else:
             sys.exit(0)
 ############################################################  
