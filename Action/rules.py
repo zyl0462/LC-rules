@@ -120,7 +120,7 @@ reject rules({LEN_reject0}{"+" if LEN_reject-LEN_reject0 >= 0 else "-"}{abs(LEN_
 proxy rules({LEN_proxy0}{"+" if LEN_proxy-LEN_proxy0 >= 0 else "-"}{abs(LEN_proxy-LEN_proxy0)}): {LEN_proxy}\n\
 direct rules({LEN_direct0}{"+" if LEN_direct-LEN_direct0 >= 0 else "-"}{abs(LEN_direct-LEN_direct0)}): {LEN_direct}\n\
 total rules({LEN_total}{"+" if LEN_reject+LEN_proxy+LEN_direct-LEN_total >= 0 else "-"}{abs(LEN_reject+LEN_proxy+LEN_direct-LEN_total)}): {LEN_reject+LEN_proxy+LEN_direct}'
-with open("./stat", "w",encoding='utf-8') as f:
+with open("./Rules/stat", "w",encoding='utf-8') as f:
     f.write(STR_stat)
 del my_stat,STR_stat,LEN_reject,LEN_proxy,LEN_direct,LEN_reject0,LEN_proxy0,LEN_direct0,LEN_total
 
