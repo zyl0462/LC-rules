@@ -91,4 +91,19 @@ proxy_text = '\n'.join(sorted(proxy_set))
 with open("./Rules/proxy.list", "w",encoding='utf-8') as f:
     f.write(proxy_text)
 
+direct_set = set()
+for item in DIRECT_URL[0]:
+    tmp_set.update([i for i in get_text(item).split("\n") if not (i.startswith('#') or i.startswith('!'))])
+for i in tmp_set:
+    j = ''
+    if i.startswith('.'):
+        j = 'DOMAIN,' + i[1:]
+    else:
+        j = 'DOMAIN,' + i
+    direct_set.add(j)
+tmp_set.clear()
+LEN_direct = len(direct_set)
+direct_text = '\n'.join(sorted(direct_set))
+with open("./Rules/direct.list", "w",encoding='utf-8') as f:
+    f.write(direct_text)
 
