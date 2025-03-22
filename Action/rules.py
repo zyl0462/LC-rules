@@ -118,7 +118,7 @@ LEN_reject0,LEN_proxy0,LEN_direct0,LEN_total= int(my_stat[0]),int(my_stat[1]),in
 STR_stat = f'#{(datetime.now().astimezone(timezone(timedelta(hours=8)))).strftime("%Y/%m/%d %H:%M:%S")}(UTC/GMT+08:00)\n\
 reject rules({LEN_reject0}{"+" if LEN_reject-LEN_reject0 >= 0 else "-"}{abs(LEN_reject-LEN_reject0)}): {LEN_reject}\n\
 proxy rules({LEN_proxy0}{"+" if LEN_proxy-LEN_proxy0 >= 0 else "-"}{abs(LEN_proxy-LEN_proxy0)}): {LEN_proxy}\n\
-direct rules({LEN_social0}{"+" if LEN_direct-LEN_direct0 >= 0 else "-"}{abs(LEN_direct-LEN_direct0)}): {LEN_direct}\n\
+direct rules({LEN_direct0}{"+" if LEN_direct-LEN_direct0 >= 0 else "-"}{abs(LEN_direct-LEN_direct0)}): {LEN_direct}\n\
 total rules({LEN_total}{"+" if LEN_reject+LEN_proxy+LEN_direct-LEN_total >= 0 else "-"}{abs(LEN_reject+LEN_proxy+LEN_direct-LEN_total)}): {LEN_reject+LEN_proxy+LEN_direct}'
 with open("./stat", "w",encoding='utf-8') as f:
     f.write(STR_stat)
