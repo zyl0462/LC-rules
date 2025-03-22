@@ -21,13 +21,13 @@ AD_URL = ("https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master
          )
 reject_set = set([i for i in get_text(AD_URL[1]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
 for i in reject_set:
-    new = ""
+    j = ''
     if i.startswith('.'):
-        new = 'DOMAIN,' + i[1:]
+        j = 'DOMAIN,' + i[1:]
     else:
-        new = 'DOMAIN,' + i
+        j = 'DOMAIN,' + i
     reject_set.remove(i)
-    reject_set.add(new)
+    reject_set.add(j)
 reject_text = '\n'.join(sorted(reject_set))
 with open("./Rules/reject.txt", "w",encoding='utf-8') as f:
     f.write(reject_text)
