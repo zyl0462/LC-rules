@@ -2,8 +2,7 @@ import requests,sys,time
 from datetime import datetime,timezone,timedelta
 
 def get_text(url):
-    parts = url.split("/")
-    file = parts[-1]
+    file = url.split("/")[-1]
     with requests.get(url, stream= True) as r:
         if r.status_code == 200:
             with open("./Rules/" + file, "wb") as f:
