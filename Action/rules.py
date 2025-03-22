@@ -13,6 +13,18 @@ def get_text(url):
                 return f.read().strip()
         else:
             sys.exit(0)
+def get_url(url, file):
+    with requests.get(url, stream= True) as r:
+        if r.status_code == 200:
+            with open("./Rules/tmp", "wb") as f:
+                for chunk in r.iter_content(chunk_size=4096):
+                    if chunk:
+                        f.write(chunk)
+            time.sleep(0.1)
+            with open("./Rules/" + file, "w",encoding='utf-8') as f:
+                f.write(reject_text)
+        else:
+            sys.exit(0)
 ############################################################  
 ############################################################
 AD_URL = ("https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising.list",
@@ -31,7 +43,8 @@ for i in tmp_set:
 tmp_set.clear()
 tmp_set = set([i for i in get_text(AD_URL[0]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
 reject_set.update(tmp_set)
+tmp_set.clear()
 reject_text = '\n'.join(sorted(reject_set))
 with open("./Rules/reject.list", "w",encoding='utf-8') as f:
     f.write(reject_text)
-    
+get_url(AD_URL[2], 'reject.plugin')
