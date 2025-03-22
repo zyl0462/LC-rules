@@ -16,13 +16,10 @@ def get_text(url):
 def get_url(url, file):
     with requests.get(url, stream= True) as r:
         if r.status_code == 200:
-            with open("./Rules/tmp", "wb") as f:
+            with open("./Rules/" + file, "wb") as f:
                 for chunk in r.iter_content(chunk_size=4096):
                     if chunk:
                         f.write(chunk)
-            time.sleep(0.1)
-            with open("./Rules/" + file, "w",encoding='utf-8') as f:
-                f.write(reject_text)
         else:
             sys.exit(0)
 ############################################################  
