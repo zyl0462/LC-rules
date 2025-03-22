@@ -40,6 +40,7 @@ for i in tmp_set:
 tmp_set.clear()
 tmp_set = set([i for i in get_text(AD_URL[0]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
 reject_set.update(tmp_set)
+LEN_reject = len(reject_set)
 tmp_set.clear()
 reject_text = '\n'.join(sorted(reject_set))
 with open("./Rules/reject.list", "w",encoding='utf-8') as f:
