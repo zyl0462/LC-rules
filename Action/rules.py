@@ -11,5 +11,4 @@ def get_text(url):
                         f.write(chunk)
         else:
             sys.exit(0)
-RULES_URL = ("https://rule.kelee.one/Loon/Apple.list",)
-get_text(RULES_URL[0])
+
