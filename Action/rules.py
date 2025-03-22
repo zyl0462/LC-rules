@@ -13,8 +13,22 @@ def get_text(url):
             return f.read().strip()
         else:
             sys.exit(0)
+############################################################  
+############################################################
 AD_URL = ("https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising.list",
           "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Advertising/Advertising_Domain.list",
           "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Advertising/Advertising_MITM.plugin"
          )
-
+reject_set = set([i for i in get_text(AD_URL[1]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
+for i in reject_set:
+    new = ""
+    if i.startswith('.'):
+        new = 'DOMAIN,' + i[1:]
+    else:
+        new = 'DOMAIN,' + i
+    reject_set.remove(i)
+    reject_set.add(new)
+reject_text = '\n'.join(sorted(reject_set))
+with open("./Rules/reject.txt", "w",encoding='utf-8') as f:
+    f.write(reject_text)
+    
