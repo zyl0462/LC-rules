@@ -102,6 +102,8 @@ for i in tmp_set:
         j = 'DOMAIN,' + i
     direct_set.add(j)
 tmp_set.clear()
+for item in DIRECT_URL[1]:
+    direct_set.update([i for i in get_text(item).split("\n") if not (i.startswith('#') or i.startswith('!'))])
 LEN_direct = len(direct_set)
 direct_text = '\n'.join(sorted(direct_set))
 with open("./Rules/direct.list", "w",encoding='utf-8') as f:
