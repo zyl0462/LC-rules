@@ -28,6 +28,9 @@ for i in tmp_set:
     else:
         j = 'DOMAIN,' + i
     reject_set.add(j)
+tmp_set.clear()
+tmp_set = set([i for i in get_text(AD_URL[0]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
+reject_set.update(tmp_set)
 reject_text = '\n'.join(sorted(reject_set))
 with open("./Rules/reject.txt", "w",encoding='utf-8') as f:
     f.write(reject_text)
