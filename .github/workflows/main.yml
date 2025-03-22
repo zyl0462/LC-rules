@@ -23,6 +23,7 @@ jobs:
           git config --local user.email "zy0462@gmail.com"
           git config --local user.name "zyl0462"
           git add ./*
+          git rm -f ./Rules/tmp
           git commit -a -m "Update rules"
 
       - name: Push changes
