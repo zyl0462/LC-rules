@@ -15,5 +15,5 @@ def get_text(url):
                 return f.read().strip()
         else:
             sys.exit(0)
-RULES_URL = ("https://rule.kelee.one/Loon/Apple.list")
+RULES_URL = ("https://rule.kelee.one/Loon/Apple.list",)
 get_text(RULES_URL[0])
