@@ -61,7 +61,7 @@ tmp_set.clear()
 reject_text = '\n'.join(sorted(reject_set))
 with open("./Rules/reject.list", "w",encoding='utf-8') as f:
     f.write(reject_text)
-get_url(REJECT[2], 'reject.plugin')
+get_url(REJECT_URL[2], 'reject.plugin')
 
 tmp_set = set([i for i in get_text(PROXY_URL[0]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
 proxy_set = set()
