@@ -24,12 +24,27 @@ def get_url(url, file):
             sys.exit(0)
 ############################################################  
 ############################################################
-REJECT_URL = ("https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising.list",
-          "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Advertising/Advertising_Domain.list",
-          "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Advertising/Advertising_MITM.plugin"
+REJECT_URL = ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Advertising/Advertising_Domain.list',
+          'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising.list',
+          'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Advertising/Advertising_MITM.plugin'
          )
+PROXY_URL = ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Global/Global_Domain.list',
+             ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Global/Global.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Google/Google.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Telegram/Telegram.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/TikTok/TikTok.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Twitter/Twitter.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Facebook/Facebook.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Discord/Discord.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Instagram/Instagram.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitLab/GitLab.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Pinterest/Pinterest.list',
+             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OpenAI/OpenAI.list')
+            )
 
-tmp_set = set([i for i in get_text(REJECT_URL[1]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
+tmp_set = set([i for i in get_text(REJECT_URL[0]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
 reject_set = set()
 for i in tmp_set:
     j = ''
@@ -39,7 +54,7 @@ for i in tmp_set:
         j = 'DOMAIN,' + i
     reject_set.add(j)
 tmp_set.clear()
-tmp_set = set([i for i in get_text(REJECT_URL[0]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
+tmp_set = set([i for i in get_text(REJECT_URL[1]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
 reject_set.update(tmp_set)
 LEN_reject = len(reject_set)
 tmp_set.clear()
@@ -47,3 +62,22 @@ reject_text = '\n'.join(sorted(reject_set))
 with open("./Rules/reject.list", "w",encoding='utf-8') as f:
     f.write(reject_text)
 get_url(REJECT[2], 'reject.plugin')
+
+tmp_set = set([i for i in get_text(PROXY_URL[0]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
+proxy_set = set()
+for i in tmp_set:
+    j = ''
+    if i.startswith('.'):
+        j = 'DOMAIN,' + i[1:]
+    else:
+        j = 'DOMAIN,' + i
+    proxy_set.add(j)
+tmp_set.clear()
+for item in PROXY_URL[1]:
+    proxy_set.update([i for i in get_text(item).split("\n") if not (i.startswith('#') or i.startswith('!'))])
+LEN_proxy = len(proxy_set)
+proxy_text = '\n'.join(sorted(proxy_set))
+with open("./Rules/proxy.list", "w",encoding='utf-8') as f:
+    f.write(proxy_text)
+
+
