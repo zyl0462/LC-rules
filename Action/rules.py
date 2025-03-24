@@ -43,16 +43,14 @@ PROXY_URL = ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/ref
              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Pinterest/Pinterest.list',
              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OpenAI/OpenAI.list')
             )
-DIRECT_URL = (('https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/ChinaMaxNoMedia/ChinaMaxNoMedia_Domain.list',
-              'https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/China/China_Domain.list',
+DIRECT_URL = (('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Alibaba/Alibaba_Domain.list',
               'https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/Apple/Apple_Domain.list'),
               ('https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/Apple/Apple.list',
-              'https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/China/China.list',
-              'https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/ChinaIPs/ChinaIPs.list',
-              'https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/ChinaMaxNoMedia/ChinaMaxNoMedia.list',
-              'https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/ChinaMedia/ChinaMedia.list',
-              'https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/WeChat/WeChat.list',
-              'https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/ByteDance/ByteDance.list')
+              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Alibaba/Alibaba.list',
+               'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/JingDong/JingDong.list',
+              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/AliPay/AliPay.list',
+              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/WeChat/WeChat.list',
+              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ByteDance/ByteDance.list')
              )
 
 tmp_set = set([i for i in get_text(REJECT_URL[0]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
