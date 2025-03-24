@@ -78,7 +78,7 @@ proxy_set = set()
 for i in tmp_set:
     j = ''
     if i.startswith('.'):
-        j = 'DOMAIN,' + i[1:]
+        j = 'DOMAIN-SUFFIX,' + i[1:]
     else:
         j = 'DOMAIN,' + i
     proxy_set.add(j)
@@ -97,7 +97,7 @@ for item in DIRECT_URL[0]:
 for i in tmp_set:
     j = ''
     if i.startswith('.'):
-        j = 'DOMAIN,' + i[1:]
+        j = 'DOMAIN-SUFFIX,' + i[1:]
     else:
         j = 'DOMAIN,' + i
     direct_set.add(j)
