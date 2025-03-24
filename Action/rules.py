@@ -44,8 +44,8 @@ PROXY_URL = ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/ref
              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OpenAI/OpenAI.list')
             )
 DIRECT_URL = (('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Alibaba/Alibaba_Domain.list',
-              'https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/Apple/Apple_Domain.list'),
-              ('https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/Apple/Apple.list',
+              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Apple/Apple_Domain.list'),
+              ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Apple/Apple.list',
               'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Alibaba/Alibaba.list',
                'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/JingDong/JingDong.list',
               'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/AliPay/AliPay.list',
