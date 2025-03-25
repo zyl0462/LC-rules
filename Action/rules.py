@@ -26,7 +26,8 @@ def get_url(url, file):
 ############################################################
 REJECT_URL = ("https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt",
              "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt")
-PROXY_URL = ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Proxy/Proxy_Domain.list',
+PROXY_URL = (('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Proxy/Proxy_Domain.list',
+             'https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/gfw.txt'),
              ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Proxy/Proxy.list',
              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/AppleTV/AppleTV.list',
              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Netflix/Netflix.list',
@@ -58,6 +59,7 @@ tmp_set .update([i[2:-1] for i in get_text(REJECT_URL[1]).split("\n") if (i.star
 
 reject_set = set()
 for i in tmp_set:
+    j = ''
     if i.startswith('.'):
         j = 'DOMAIN-SUFFIX,' + i[1:]
     else:
@@ -70,7 +72,8 @@ with open("./Rules/reject.list", "w",encoding='utf-8') as f:
     f.write(reject_text)
 del reject_set,reject_text
 
-tmp_set = set([i for i in get_text(PROXY_URL[0]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
+for item in PROXY_URL[0]:
+    tmp_set.update([i for i in get_text(item).split("\n") if not (i.startswith('#') or i.startswith('!'))])
 proxy_set = set()
 for i in tmp_set:
     j = ''
