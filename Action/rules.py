@@ -58,7 +58,10 @@ tmp_set .update([i[2:-1] for i in get_text(REJECT_URL[1]).split("\n") if (i.star
 
 reject_set = set()
 for i in tmp_set:
-    j = 'DOMAIN-SUFFIX,' + i
+    if i.startswith('.'):
+        j = 'DOMAIN-SUFFIX,' + i[1:]
+    else:
+        j = 'DOMAIN,' + i
     reject_set.add(j)
 tmp_set.clear()
 LEN_reject = len(reject_set)
