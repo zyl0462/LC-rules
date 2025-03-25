@@ -9,10 +9,12 @@ DOMAIN,dldir1.qq.com
 DOMAIN,e16991.b.akamaiedge.net
 DOMAIN,edge.apple
 DOMAIN,icons.axm-usercontent-apple.com
+DOMAIN,lf3-static.bytednsdoc.com
 DOMAIN,lookup-api.apple.com.edgekey.net
 DOMAIN,p-events-delivery.akamaized.net
 DOMAIN,slife.xy-asia.com
 DOMAIN,soup.v.qq.com
+DOMAIN,v5-dy-o-abtest.zjcdn.com
 DOMAIN,vweixinf.tc.qq.com
 DOMAIN,weixin110.qq.com
 DOMAIN,wup.imtt.qq.com
@@ -3063,6 +3065,7 @@ DOMAIN-SUFFIX,smartisanos.com
 DOMAIN-SUFFIX,sneaker666.com
 DOMAIN-SUFFIX,sneakerpage.net
 DOMAIN-SUFFIX,sneakerskick.com
+DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,soku.com
 DOMAIN-SUFFIX,solostudioksale.com
 DOMAIN-SUFFIX,soso7778.com
