@@ -26,7 +26,7 @@ def get_url(url, file):
 ############################################################
 REJECT_URL = ("https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt",
              "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt")
-PROXY_URL = (('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Proxy/Proxy_Domain.list',
+PROXY_URL = (('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy_Domain.txt',
              'https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/gfw.txt'),
              ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Proxy/Proxy.list',
              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/AppleTV/AppleTV.list',
@@ -51,6 +51,7 @@ DIRECT_URL = (('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/r
                'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/JingDong/JingDong.list',
               'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/AliPay/AliPay.list',
               'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/WeChat/WeChat.list',
+              ‘https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/DouYin/DouYin.list’，
               'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ByteDance/ByteDance.list')
              )
 
