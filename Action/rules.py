@@ -13,15 +13,7 @@ def get_text(url):
                 return f.read().strip()
         else:
             sys.exit(0)
-def get_url(url, file):
-    with requests.get(url, stream= True) as r:
-        if r.status_code == 200:
-            with open("./Rules/" + file, "wb") as f:
-                for chunk in r.iter_content(chunk_size=4096):
-                    if chunk:
-                        f.write(chunk)
-        else:
-            sys.exit(0)
+
 ############################################################  
 ############################################################
 REJECT_URL = ("https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt",
@@ -56,7 +48,7 @@ DIRECT_URL = (('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/m
              )
 
 tmp_set = set([i for i in get_text(REJECT_URL[0]).split("\n") if not (i.startswith('#') or i.startswith('!'))])
-tmp_set.update([i[2:-1] for i in get_text(REJECT_URL[1]).split("\n") if (i.startswith('||') and i.endswith('^'))])
+tmp_set.update([i[2:-1] for i in get_text(REJECT_URL[1]).split("\n")  if (i.startswith('||') and i.endswith('^') and ( not ('*' in i)))])
 reject_set = set()
 for i in tmp_set:
     reject_set.add('DOMAIN,' + i)
