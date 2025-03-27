@@ -19,8 +19,7 @@ def get_text(url):
 REJECT_URL = ("https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt",
              "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt")
 PROXY_URL = (('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Domain.txt',
-             'https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/gfw.txt',
-             'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Proxy/Proxy_Domain.list'),
+             'https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/gfw.txt'),
              ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Proxy/Proxy.list',
              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AppleTV/AppleTV.list',
              'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Netflix/Netflix.list',
@@ -60,7 +59,6 @@ tmp_set = set()
 for item in PROXY_URL[0]:
     tmp_set.update([i for i in get_text(item).split("\n") if not ((len(i) == 0) or i.startswith('#') or i.startswith('!'))])
 proxy_set = set()
-
 for i in tmp_set:
     if i.startswith('.'):
         j = 'DOMAIN-SUFFIX,' + i[1:]
